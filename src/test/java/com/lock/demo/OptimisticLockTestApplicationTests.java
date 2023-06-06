@@ -23,10 +23,7 @@ class OptimisticLockTestApplicationTests {
 
 	@Test
 	public void testOptimisticLocking() throws InterruptedException {
-		Product product = new Product();
-		product.setId(1);
-		product.setName("Product A");
-		product.setQuantity(10);
+		Product product = new Product("Product A", 10);
 		productRepository.save(product);
 
 		// Start the first transaction

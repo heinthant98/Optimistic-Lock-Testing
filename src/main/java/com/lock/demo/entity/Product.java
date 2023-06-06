@@ -13,6 +13,14 @@ import java.util.Objects;
 @Table(name = "book")
 public class Product {
 
+    public Product() {
+    }
+
+    public Product(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -51,8 +59,9 @@ public class Product {
         return version;
     }
 
-    public void setVersion(int version) {
-        this.version = version;
+    public void updateProductQuantity(int quantity) {
+        this.quantity =- quantity;
+        this.version++;
     }
 
     @Override
