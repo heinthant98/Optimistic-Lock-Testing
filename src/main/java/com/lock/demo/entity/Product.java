@@ -59,7 +59,7 @@ public class Product {
         return version;
     }
 
-    public void updateProductQuantity(int quantity) {
+    public void updateQuantity(int quantity) {
         this.quantity =- quantity;
         this.version++;
     }

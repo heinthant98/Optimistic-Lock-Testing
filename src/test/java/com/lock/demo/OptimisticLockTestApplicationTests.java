@@ -34,7 +34,7 @@ class OptimisticLockTestApplicationTests {
 
 		//update data in first transaction
 		firstTransaction.setQuantity(product.getQuantity() - 2);
-		productService.updateProduct(firstTransaction);
+		productService.updateProductQuantity(firstTransaction);
 
 		assertThat(firstTransaction.getQuantity()).isEqualTo(8);
 
@@ -43,7 +43,7 @@ class OptimisticLockTestApplicationTests {
 		//update same data in second transaction
 		Assertions.assertThrows(OptimisticLockException.class, () -> {
 			secondTransaction.setQuantity(product.getQuantity() - 5);
-			productService.updateProduct(secondTransaction);
+			productService.updateProductQuantity(secondTransaction);
 		});
 	}
 
