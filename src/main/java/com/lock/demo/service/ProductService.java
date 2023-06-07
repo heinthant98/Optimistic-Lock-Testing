@@ -18,7 +18,7 @@ public class ProductService {
     public Product updateProductQuantity(Product updateProduct) {
         var product = repository.findById(updateProduct.getId()).orElseThrow(() -> new EntityNotFoundException("Product Not found"));
         if (updateProduct.getVersion() == product.getVersion()) {
-            product.updateQuantity(updateProduct.getQuantity());
+            product.updateQuantity(product.getQuantity() - updateProduct.getQuantity());
             return repository.save(product);
         } else {
             throw new OptimisticLockException();

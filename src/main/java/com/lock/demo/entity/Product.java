@@ -60,7 +60,7 @@ public class Product {
     }
 
     public void updateQuantity(int quantity) {
-        this.quantity =- quantity;
+        this.quantity = quantity;
         this.version++;
     }
 
